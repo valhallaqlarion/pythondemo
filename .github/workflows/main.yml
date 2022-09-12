@@ -1,0 +1,22 @@
+# .github/workflows/test_action.yaml
+name: Test Action
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  doublenum:
+    runs-on: ubuntu-latest
+    name: Returns double the input number
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get double the input
+        id: doublenum
+        uses: ./ # Uses an action in the root directory
+        # or use a released Github Action
+        # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+        with:
+          num: 11
+      - name: Print double the input
+        run: echo "${{ steps.doublenum.outputs.doublenum }}"
