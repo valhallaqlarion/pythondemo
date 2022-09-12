@@ -17,6 +17,6 @@ jobs:
         # or use a released Github Action
         # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
         with:
-          num: 11
+          num: 112
       - name: Print double the input
         run: echo "${{ steps.doublenum.outputs.doublenum }}"
